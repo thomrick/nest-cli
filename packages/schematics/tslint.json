@@ -1,0 +1,17 @@
+{
+  "extends": ["tslint:recommended"],
+  "jsRules": {},
+  "rules": {
+    "interface-name": false,
+    "quotemark": false,
+    "no-empty": false,
+    "no-empty-interface": false,
+    "max-classes-per-file": false,
+    "arrow-parens": false,
+    "variable-name": false,
+    "object-literal-sort-keys": false,
+    "member-ordering": false,
+    "member-access": false
+  },
+  "rulesDirectory": []
+}
