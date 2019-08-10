@@ -8,25 +8,26 @@ jobs:
       env:
         - ARTEFACT_ID=$TRAVIS_PULL_REQUEST
       script:
+        - npm install
         - npm run -s bootstrap
         - npm run -s test
         - npm run -s build
 
     - stage: build_branch
-      if: NOT tag IS present AND type IN (push) AND NOT branch =~ ^sprint-*
+      if: NOT tag IS present AND type IN (push)
       env:
         - ARTEFACT_ID=$TRAVIS_COMMIT
       script:
+        - npm install
         - npm run -s bootstrap
         - npm run -s test
         - npm run -s build
 
     # - stage: continuous_integration
-    #   if: NOT tag IS present AND type IN (push) AND branch =~ ^sprint-*
+    #   if: NOT tag IS present AND type IN (push)
     #   env:
     #     - ARTEFACT_ID=$TRAVIS_COMMIT
     #   script:
-        
 
     # - stage: release
     #   if: tag IS present
