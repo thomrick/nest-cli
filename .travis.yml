@@ -1,7 +1,6 @@
-sudo: required
-services:
-  - docker
-install: true
+language: node_js
+node_js:
+  - 10
 jobs:
   include:
     - stage: pull_request
@@ -10,6 +9,7 @@ jobs:
         - ARTIFACT_ID=$TRAVIS_PULL_REQUEST
       script:
         - npm install
+        - npm run -s bootstrap
 
     - stage: build_branch
       if: NOT tag IS present AND type IN (push) AND NOT branch =~ ^sprint-*
@@ -17,6 +17,7 @@ jobs:
         - ARTIFACT_ID=$TRAVIS_COMMIT
       script:
         - npm install
+        - npm run -s bootstrap
 
     - stage: continuous_integration
       if: NOT tag IS present AND type IN (push) AND branch =~ ^sprint-*
@@ -24,6 +25,7 @@ jobs:
         - ARTIFACT_ID=$TRAVIS_COMMIT
       script:
         - npm install
+        - npm run -s bootstrap
 
     - stage: release
       if: tag IS present
@@ -32,3 +34,4 @@ jobs:
         - RELEASE_VERSION=$TRAVIS_TAG
       script:
         - npm install
+        - npm run -s bootstrap
