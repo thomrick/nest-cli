@@ -18,6 +18,8 @@ jobs:
       script:
         - npm install
         - npm run -s bootstrap
+        - npm run -s test 
+        - npm run -s build
 
     - stage: continuous_integration
       if: NOT tag IS present AND type IN (push) AND branch =~ ^sprint-*

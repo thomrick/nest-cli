@@ -1,22 +1,26 @@
-.idea/
+.idea
 .DS_Store
 
 .git
+.github
+.gitignore
+
 .dockerignore
 Dockerfile
 
 .npmrc
 .npmignore
 
-.nyc_output/
-coverage/
-Makefile
-node_modules/
-test/
+.nyc_output
+coverage
 
-# tests
-**/*.test.ts
+.travis.yml
 
-# add definitions
-!**/*.d.ts
-!*.d.ts
+node_modules
+scripts
+src
+test
+README.md
+renovate.json
+tsconfig.json
+tslint.json

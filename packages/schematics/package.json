@@ -7,10 +7,10 @@
     "access": "public"
   },
   "scripts": {
-    "build": "rm -rf dist && tsc --project tsconfig.json",
+    "build": "rm -rf dist/* && tsc && cp src/collection.json ./dist/collection.json",
     "lint:src": "tslint --project tsconfig.json",
     "lint:test": "tslint --project test/tsconfig.json",
-    "test": "jest --no-cache --config test/jest-config.json",
+    "test": "jest --no-cache --config test/jest.config.json",
     "test:dev": "npm run -s test -- --watchAll"
   },
   "repository": {
@@ -41,7 +41,7 @@
     "ts-jest": "24.0.2",
     "tslint": "5.20.0"
   },
-  "schematics": "./collection.json",
+  "schematics": "./dist/collection.json",
   "nyc": {
     "include": [
       "src"

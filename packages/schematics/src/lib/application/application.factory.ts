@@ -44,7 +44,7 @@ function transform(options: ApplicationOptions): ApplicationOptions {
 }
 
 function generate(options: ApplicationOptions): Source {
-  return apply(url(join('./files' as Path, options.language)), [
+  return apply(url(join('../../../templates/application' as Path, options.language)), [
     template({
       ...strings,
       ...options,
