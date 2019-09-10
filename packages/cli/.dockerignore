@@ -1,0 +1,17 @@
+.idea/
+
+.git/
+.gitignore
+
+.envrc
+.npmrc
+
+.travis.yml
+
+.dockerignore
+Dockerfile
+
+Makefile
+
+node_modules
+CONTRIBUTE.md
