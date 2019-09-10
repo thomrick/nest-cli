@@ -1,4 +1,4 @@
-import { join, Path, strings } from '@angular-devkit/core';
+import { strings } from '@angular-devkit/core';
 import {
   apply,
   chain,
@@ -13,8 +13,10 @@ import {
   template,
   url,
 } from '@angular-devkit/schematics';
+import { join } from 'path';
 import { Location, NameParser } from '../../utils/name.parser';
 import { mergeSourceRoot } from '../../utils/source-root.helpers';
+import { TEMPLATE_ROOT_PATH } from '../constants';
 import { DEFAULT_LANGUAGE } from '../defaults';
 import { ClassOptions } from './class.schema';
 
@@ -36,14 +38,14 @@ function transform(options: ClassOptions): ClassOptions {
   target.path = strings.dasherize(location.path);
   target.path = target.flat
     ? target.path
-    : join(target.path as Path, target.name);
+    : join(target.path, target.name);
 
   return target;
 }
 
 function generate(options: ClassOptions): Source {
   return (context: SchematicContext) =>
-    apply(url(join('./files' as Path, options.language)), [
+    apply(url(join(TEMPLATE_ROOT_PATH, 'class', options.language)), [
       options.spec ? noop() : filter(path => !path.endsWith('.spec.ts')),
       template({
         ...strings,

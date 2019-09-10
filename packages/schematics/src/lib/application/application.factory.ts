@@ -1,20 +1,8 @@
-import { join, Path, strings } from '@angular-devkit/core';
-import {
-  apply,
-  mergeWith,
-  move,
-  Rule,
-  SchematicsException,
-  Source,
-  template,
-  url,
-} from '@angular-devkit/schematics';
-import {
-  DEFAULT_AUTHOR,
-  DEFAULT_DESCRIPTION,
-  DEFAULT_LANGUAGE,
-  DEFAULT_VERSION,
-} from '../defaults';
+import { strings } from '@angular-devkit/core';
+import { apply, mergeWith, move, Rule, Source, template, url } from '@angular-devkit/schematics';
+import { join } from 'path';
+import { TEMPLATE_ROOT_PATH } from '../constants';
+import { DEFAULT_AUTHOR, DEFAULT_DESCRIPTION, DEFAULT_LANGUAGE, DEFAULT_VERSION } from '../defaults';
 import { ApplicationOptions } from './application.schema';
 
 export function main(options: ApplicationOptions): Rule {
@@ -44,7 +32,7 @@ function transform(options: ApplicationOptions): ApplicationOptions {
 }
 
 function generate(options: ApplicationOptions): Source {
-  return apply(url(join('../../../templates/application' as Path, options.language)), [
+  return apply(url(join(TEMPLATE_ROOT_PATH, 'application', options.language)), [
     template({
       ...strings,
       ...options,
