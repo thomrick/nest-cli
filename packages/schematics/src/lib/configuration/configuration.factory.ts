@@ -1,13 +1,7 @@
-import { join, Path, strings } from '@angular-devkit/core';
-import {
-  apply,
-  mergeWith,
-  move,
-  Rule,
-  Source,
-  template,
-  url,
-} from '@angular-devkit/schematics';
+import { strings } from '@angular-devkit/core';
+import { apply, mergeWith, move, Rule, Source, template, url } from '@angular-devkit/schematics';
+import { join } from 'path';
+import { TEMPLATE_ROOT_PATH } from '../constants';
 import { DEFAULT_LANGUAGE } from '../defaults';
 import { ConfigurationOptions } from './configuration.schema';
 
@@ -25,7 +19,7 @@ function transform(options: ConfigurationOptions): ConfigurationOptions {
 }
 
 function generate(options: ConfigurationOptions): Source {
-  return apply(url(join('./files' as Path, options.language)), [
+  return apply(url(join(TEMPLATE_ROOT_PATH, 'configuration')), [
     template({
       ...strings,
       ...options,
