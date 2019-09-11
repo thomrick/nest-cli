@@ -39,7 +39,7 @@
     "guard": {
       "factory": "./lib/guard/guard.factory#main",
       "description": "Create a Nest guard.",
-      "schema": "./lib/guard/schema.json"
+      "schema": "../schemas/guard.schema.json"
     },
     "interceptor": {
       "factory": "./lib/interceptor/interceptor.factory#main",

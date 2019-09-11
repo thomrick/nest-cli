@@ -1,4 +1,4 @@
-import { join, Path, strings } from '@angular-devkit/core';
+import { strings } from '@angular-devkit/core';
 import {
   apply,
   chain,
@@ -13,8 +13,10 @@ import {
   template,
   url,
 } from '@angular-devkit/schematics';
+import { join } from 'path';
 import { Location, NameParser } from '../../utils/name.parser';
 import { mergeSourceRoot } from '../../utils/source-root.helpers';
+import { TEMPLATE_ROOT_PATH } from '../constants';
 import { GuardOptions } from './guard.schema';
 
 export function main(options: GuardOptions): Rule {
@@ -34,13 +36,13 @@ function transform(options: GuardOptions): GuardOptions {
 
   target.path = target.flat
     ? target.path
-    : join(target.path as Path, target.name);
+    : join(target.path, target.name);
   return target;
 }
 
 function generate(options: GuardOptions): Source {
   return (context: SchematicContext) =>
-    apply(url(join('./files' as Path, options.language)), [
+    apply(url(join(TEMPLATE_ROOT_PATH, 'guard', options.language)), [
       options.spec ? noop() : filter(path => !path.endsWith('.spec.ts')),
       template({
         ...strings,
