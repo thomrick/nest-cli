@@ -44,7 +44,7 @@
     "interceptor": {
       "factory": "./lib/interceptor/interceptor.factory#main",
       "description": "Create a Nest interceptor.",
-      "schema": "./lib/interceptor/schema.json"
+      "schema": "../schemas/interceptor.schema.json"
     },
     "interface": {
       "factory": "./lib/interface/interface.factory#main",
