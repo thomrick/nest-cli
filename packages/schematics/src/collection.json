@@ -29,7 +29,7 @@
     "filter": {
       "factory": "./lib/filter/filter.factory#main",
       "description": "Create a Nest filter.",
-      "schema": "./lib/filter/schema.json"
+      "schema": "../schemas/filter.schema.json"
     },
     "gateway": {
       "factory": "./lib/gateway/gateway.factory#main",
