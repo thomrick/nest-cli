@@ -24,7 +24,7 @@
     "decorator": {
       "factory": "./lib/decorator/decorator.factory#main",
       "description": "Create a Nest decorator.",
-      "schema": "./lib/decorator/schema.json"
+      "schema": "../schemas/decorator.schema.json"
     },
     "filter": {
       "factory": "./lib/filter/filter.factory#main",
