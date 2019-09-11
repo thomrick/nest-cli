@@ -34,7 +34,7 @@
     "gateway": {
       "factory": "./lib/gateway/gateway.factory#main",
       "description": "Create a Nest gateway.",
-      "schema": "./lib/gateway/schema.json"
+      "schema": "../schemas/gateway.schema.json"
     },
     "guard": {
       "factory": "./lib/guard/guard.factory#main",
