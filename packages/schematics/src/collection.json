@@ -88,7 +88,7 @@
     "library": {
       "factory": "./lib/library/library.factory#main",
       "description": "Create a Nest library (mono-repo).",
-      "schema": "./lib/library/schema.json"
+      "schema": "../schemas/library.schema.json"
     }
   }
 }

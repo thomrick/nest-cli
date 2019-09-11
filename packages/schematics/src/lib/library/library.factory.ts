@@ -1,23 +1,7 @@
-import {
-  join,
-  normalize,
-  parseJson,
-  Path,
-  strings,
-} from '@angular-devkit/core';
-import {
-  apply,
-  branchAndMerge,
-  chain,
-  mergeWith,
-  move,
-  Rule,
-  SchematicsException,
-  Source,
-  template,
-  Tree,
-  url,
-} from '@angular-devkit/schematics';
+import { normalize, parseJson, Path, strings } from '@angular-devkit/core';
+import { apply, branchAndMerge, chain, mergeWith, move, Rule, SchematicsException, Source, template, Tree, url } from '@angular-devkit/schematics';
+import { join } from 'path';
+import { TEMPLATE_ROOT_PATH } from '../constants';
 import { DEFAULT_LANGUAGE, DEFAULT_LIB_PATH } from '../defaults';
 import { LibraryOptions } from './library.schema';
 
@@ -148,7 +132,7 @@ function addLibraryToCliOptions(
 function generate(options: LibraryOptions): Source {
   const path = join(options.path as Path, options.name);
 
-  return apply(url(join('./files' as Path, options.language)), [
+  return apply(url(join(TEMPLATE_ROOT_PATH, 'library', options.language)), [
     template({
       ...strings,
       ...options,
