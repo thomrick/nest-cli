@@ -9,7 +9,7 @@
     "angular-app": {
       "factory": "./lib/client-app/angular/angular.factory#main",
       "description": "Create a new Angular application.",
-      "schema": "./lib/client-app/angular/schema.json"
+      "schema": "../schemas/angular-app.schema.json"
     },
     "class": {
       "factory": "./lib/class/class.factory#main",

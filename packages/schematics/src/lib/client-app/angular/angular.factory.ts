@@ -23,6 +23,7 @@ import {
 import { ModuleFinder } from '../../../utils/module.finder';
 import { Location, NameParser } from '../../../utils/name.parser';
 import { mergeSourceRoot } from '../../../utils/source-root.helpers';
+import { TEMPLATE_ROOT_PATH } from '../../constants';
 import { ModuleOptions } from '../../module/module.schema';
 import { AngularOptions } from './angular.schema';
 
@@ -56,7 +57,7 @@ function transform(source: AngularOptions): ModuleOptions {
 
 function generate(options: AngularOptions) {
   return (context: SchematicContext) =>
-    apply(url('./files' as Path), [
+    apply(url(join(TEMPLATE_ROOT_PATH, 'client-app/angular')), [
       template({
         ...strings,
         ...options,
