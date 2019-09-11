@@ -1,4 +1,4 @@
-import { join, Path, strings } from '@angular-devkit/core';
+import { strings } from '@angular-devkit/core';
 import {
   apply,
   chain,
@@ -14,6 +14,8 @@ import {
 import { Location, NameParser } from '../../utils/name.parser';
 import { mergeSourceRoot } from '../../utils/source-root.helpers';
 import { InterfaceOptions } from './interface.schema';
+import { join } from 'path';
+import { TEMPLATE_ROOT_PATH } from '../constants';
 
 export function main(options: InterfaceOptions): Rule {
   options = transform(options);
@@ -31,13 +33,13 @@ function transform(options: InterfaceOptions): InterfaceOptions {
 
   target.path = target.flat
     ? target.path
-    : join(target.path as Path, target.name);
+    : join(target.path, target.name);
   return target;
 }
 
 function generate(options: InterfaceOptions): Source {
   return (context: SchematicContext) =>
-    apply(url('./files'), [
+    apply(url(join(TEMPLATE_ROOT_PATH, 'interface')), [
       template({
         ...strings,
         ...options,

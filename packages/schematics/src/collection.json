@@ -49,7 +49,7 @@
     "interface": {
       "factory": "./lib/interface/interface.factory#main",
       "description": "Create a Nest interface.",
-      "schema": "./lib/interface/schema.json"
+      "schema": "../schemas/interface.schema.json"
     },
     "middleware": {
       "factory": "./lib/middleware/middleware.factory#main",
