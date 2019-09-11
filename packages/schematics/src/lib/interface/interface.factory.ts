@@ -11,11 +11,11 @@ import {
   template,
   url,
 } from '@angular-devkit/schematics';
+import { join } from 'path';
 import { Location, NameParser } from '../../utils/name.parser';
 import { mergeSourceRoot } from '../../utils/source-root.helpers';
-import { InterfaceOptions } from './interface.schema';
-import { join } from 'path';
 import { TEMPLATE_ROOT_PATH } from '../constants';
+import { InterfaceOptions } from './interface.schema';
 
 export function main(options: InterfaceOptions): Rule {
   options = transform(options);
