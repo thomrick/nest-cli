@@ -1,25 +1,11 @@
-import { join, Path, strings } from '@angular-devkit/core';
-import {
-  apply,
-  branchAndMerge,
-  chain,
-  filter,
-  mergeWith,
-  move,
-  noop,
-  Rule,
-  SchematicContext,
-  template,
-  Tree,
-  url,
-} from '@angular-devkit/schematics';
-import {
-  DeclarationOptions,
-  ModuleDeclarator,
-} from '../../utils/module.declarator';
+import { Path, strings } from '@angular-devkit/core';
+import { apply, branchAndMerge, chain, filter, mergeWith, move, noop, Rule, SchematicContext, template, Tree, url } from '@angular-devkit/schematics';
+import { join } from 'path';
+import { DeclarationOptions, ModuleDeclarator } from '../../utils/module.declarator';
 import { ModuleFinder } from '../../utils/module.finder';
 import { Location, NameParser } from '../../utils/name.parser';
 import { mergeSourceRoot } from '../../utils/source-root.helpers';
+import { TEMPLATE_ROOT_PATH } from '../constants';
 import { DEFAULT_LANGUAGE } from '../defaults';
 import { ControllerOptions } from './controller.schema';
 
@@ -52,13 +38,13 @@ function transform(source: ControllerOptions): ControllerOptions {
 
   target.path = target.flat
     ? target.path
-    : join(target.path as Path, target.name);
+    : join(target.path, target.name);
   return target;
 }
 
 function generate(options: ControllerOptions) {
   return (context: SchematicContext) =>
-    apply(url(join('./files' as Path, options.language)), [
+    apply(url(join(TEMPLATE_ROOT_PATH, 'controller', options.language)), [
       options.spec ? noop() : filter(path => !path.endsWith('.spec.ts')),
       template({
         ...strings,

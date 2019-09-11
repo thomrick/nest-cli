@@ -19,7 +19,7 @@
     "controller": {
       "factory": "./lib/controller/controller.factory#main",
       "description": "Create a Nest controller.",
-      "schema": "./lib/controller/schema.json"
+      "schema": "../schemas/controller.schema.json"
     },
     "decorator": {
       "factory": "./lib/decorator/decorator.factory#main",
