@@ -69,7 +69,7 @@
     "provider": {
       "factory": "./lib/provider/provider.factory#main",
       "description": "Create a Nest provider.",
-      "schema": "./lib/provider/schema.json"
+      "schema": "../schemas/provider.schema.json"
     },
     "service": {
       "factory": "./lib/service/service.factory#main",
