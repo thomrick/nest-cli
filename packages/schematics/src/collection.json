@@ -64,7 +64,7 @@
     "pipe": {
       "factory": "./lib/pipe/pipe.factory#main",
       "description": "Create a Nest pipe.",
-      "schema": "./lib/pipe/schema.json"
+      "schema": "../schemas/pipe.schema.json"
     },
     "provider": {
       "factory": "./lib/provider/provider.factory#main",
