@@ -1,23 +1,11 @@
-import { join, Path, strings } from '@angular-devkit/core';
-import {
-  apply,
-  branchAndMerge,
-  chain,
-  mergeWith,
-  move,
-  Rule,
-  SchematicContext,
-  template,
-  Tree,
-  url,
-} from '@angular-devkit/schematics';
-import {
-  DeclarationOptions,
-  ModuleDeclarator,
-} from '../../utils/module.declarator';
+import { Path, strings } from '@angular-devkit/core';
+import { apply, branchAndMerge, chain, mergeWith, move, Rule, SchematicContext, template, Tree, url } from '@angular-devkit/schematics';
+import { join } from 'path';
+import { DeclarationOptions, ModuleDeclarator } from '../../utils/module.declarator';
 import { ModuleFinder } from '../../utils/module.finder';
 import { Location, NameParser } from '../../utils/name.parser';
 import { mergeSourceRoot } from '../../utils/source-root.helpers';
+import { TEMPLATE_ROOT_PATH } from '../constants';
 import { ModuleOptions } from './module.schema';
 
 export function main(options: ModuleOptions): Rule {
@@ -40,14 +28,14 @@ function transform(source: ModuleOptions): ModuleOptions {
 
   const location: Location = new NameParser().parse(target);
   target.name = strings.dasherize(location.name);
-  target.path = join(strings.dasherize(location.path) as Path, target.name);
+  target.path = join(strings.dasherize(location.path), target.name);
   target.language = target.language !== undefined ? target.language : 'ts';
   return target;
 }
 
 function generate(options: ModuleOptions) {
   return (context: SchematicContext) =>
-    apply(url(join('./files' as Path, options.language)), [
+    apply(url(join(TEMPLATE_ROOT_PATH, 'module', options.language)), [
       template({
         ...strings,
         ...options,

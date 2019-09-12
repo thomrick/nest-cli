@@ -54,12 +54,12 @@
     "middleware": {
       "factory": "./lib/middleware/middleware.factory#main",
       "description": "Create a Nest middleware.",
-      "schema": "./lib/middleware/schema.json"
+      "schema": "../schemas/middleware.schema.json"
     },
     "module": {
       "factory": "./lib/module/module.factory#main",
       "description": "Create a Nest module.",
-      "schema": "./lib/module/schema.json"
+      "schema": "../schemas/module.schema.json"
     },
     "pipe": {
       "factory": "./lib/pipe/pipe.factory#main",
