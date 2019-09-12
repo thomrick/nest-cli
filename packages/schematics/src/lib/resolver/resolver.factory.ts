@@ -1,4 +1,4 @@
-import { join, Path, strings } from '@angular-devkit/core';
+import { Path, strings } from '@angular-devkit/core';
 import {
   apply,
   branchAndMerge,
@@ -15,6 +15,7 @@ import {
   Tree,
   url,
 } from '@angular-devkit/schematics';
+import { join } from 'path';
 import {
   DeclarationOptions,
   ModuleDeclarator,
@@ -22,6 +23,7 @@ import {
 import { ModuleFinder } from '../../utils/module.finder';
 import { Location, NameParser } from '../../utils/name.parser';
 import { mergeSourceRoot } from '../../utils/source-root.helpers';
+import { TEMPLATE_ROOT_PATH } from '../constants';
 import { ProviderOptions } from '../provider/provider.schema';
 import { ResolverOptions } from './resolver.schema';
 
@@ -53,13 +55,13 @@ function transform(options: ResolverOptions): ResolverOptions {
 
   target.path = target.flat
     ? target.path
-    : join(target.path as Path, target.name);
+    : join(target.path, target.name);
   return target;
 }
 
 function generate(options: ResolverOptions): Source {
   return (context: SchematicContext) =>
-    apply(url(join('./files' as Path, options.language)), [
+    apply(url(join(TEMPLATE_ROOT_PATH, 'resolver', options.language)), [
       options.spec ? noop() : filter(path => !path.endsWith('.spec.ts')),
       template({
         ...strings,

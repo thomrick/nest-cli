@@ -79,7 +79,7 @@
     "resolver": {
       "factory": "./lib/resolver/resolver.factory#main",
       "description": "Create a Nest resolver.",
-      "schema": "./lib/resolver/schema.json"
+      "schema": "../schemas/resolver.schema.json"
     },
     "configuration": {
       "factory": "./lib/configuration/configuration.factory#main",
