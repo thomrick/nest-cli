@@ -74,7 +74,7 @@
     "service": {
       "factory": "./lib/service/service.factory#main",
       "description": "Create a Nest service.",
-      "schema": "./lib/service/schema.json"
+      "schema": "../schemas/service.schema.json"
     },
     "resolver": {
       "factory": "./lib/resolver/resolver.factory#main",
