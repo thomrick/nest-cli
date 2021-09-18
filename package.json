@@ -38,9 +38,9 @@
     "@types/jest": "^22.2.3",
     "chalk": "^2.4.1",
     "commander": "^2.15.1",
-    "inquirer": "^5.2.0",
+    "inquirer": "^7.0.5",
     "node-emoji": "^1.8.1",
-    "ora": "^2.1.0",
+    "ora": "^4.0.3",
     "os-name": "^2.0.1",
     "ts-node": "^6.0.5"
   },
