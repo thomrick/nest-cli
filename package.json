@@ -18,7 +18,9 @@
     "start": "node bin/nest.js",
     "test": "jest --config test/jest-config.json",
     "test:dev": "jest --config test/jest-config.json --watchAll",
-    "postinstall": "opencollective"
+    "postinstall": "opencollective",
+    "prepare": "npm run snyk-protect",
+    "snyk-protect": "snyk-protect"
   },
   "repository": {
     "type": "git",
@@ -31,9 +33,9 @@
   },
   "homepage": "https://github.com/nestjs/nest-cli#readme",
   "dependencies": {
-    "@angular-devkit/core": "^0.8.1",
+    "@angular-devkit/core": "^8.3.29",
     "@angular-devkit/schematics-cli": "^0.8.1",
-    "@nestjs/schematics": "^5.8.0",
+    "@nestjs/schematics": "^7.1.0",
     "@nuxtjs/opencollective": "^0.1.0",
     "@types/jest": "^22.2.3",
     "chalk": "^2.4.1",
@@ -42,7 +44,8 @@
     "node-emoji": "^1.8.1",
     "ora": "^2.1.0",
     "os-name": "^2.0.1",
-    "ts-node": "^6.0.5"
+    "ts-node": "^6.0.5",
+    "@snyk/protect": "latest"
   },
   "devDependencies": {
     "@types/inquirer": "0.0.41",
@@ -61,5 +64,6 @@
     "donation": {
       "text": "Become a partner:"
     }
-  }
+  },
+  "snyk": true
 }
